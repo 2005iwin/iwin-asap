@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- index.html — Portfolio of Iwin Francis -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iwin Francis — Portfolio</title>
+  <meta name="description" content="Iwin Francis — visionary technocrat and mentor blending analytical rigor with poetic creativity. AI-powered workflows, public speaking, branding, and mentoring." />
+  <meta name="theme-color" content="#0f172a" />
+  <meta property="og:title" content="Iwin Francis — Portfolio" />
+  <meta property="og:description" content="Visionary technocrat & mentor. AI workflows, thought leadership, signature frameworks: SpadeCrafter & TopicCrafter." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
+  <meta name="color-scheme" content="dark light" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='24' fill='%230f172a'/%3E%3Ctext x='50%25' y='58%25' dominant-baseline='middle' text-anchor='middle' font-family='Segoe UI, Roboto, Arial' font-size='56' fill='%23e2e8f0'%3EIF%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    :root{
+      --bg: #0b1020;
+      --panel: #0f172a;
+      --soft: #111a34;
+      --muted: #94a3b8;
+      --text: #e2e8f0;
+      --brand: linear-gradient(135deg,#60a5fa 0%, #34d399 50%, #f59e0b 100%);
+      --accent: #60a5fa;
+      --accent-2:#34d399;
+      --ring: rgba(96,165,250,.4);
+      --shadow: 0 10px 30px rgba(2,6,23,.6), inset 0 1px 0 rgba(255,255,255,.02);
+      --radius: 16px;
+    }
+    :root[data-theme="light"]{
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --soft: #eef2ff;
+      --muted: #475569;
+      --text: #0f172a;
+      --ring: rgba(2,132,199,.25);
+      --shadow: 0 12px 24px rgba(15,23,42,.08), inset 0 1px 0 rgba(2,6,23,.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px 800px at 75% -10%, rgba(52,211,153,.08),transparent 60%),
+                  radial-gradient(900px 600px at 20% -10%, rgba(96,165,250,.12),transparent 55%),
+                  var(--bg);
+      line-height:1.6;
+      scroll-behavior:smooth;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:24px}
+    header.nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(1.2) blur(8px);
+      background: color-mix(in hsl, var(--panel) 70%, transparent);
+      border-bottom:1px solid color-mix(in srgb, var(--muted) 25%, transparent);
+    }
+    .nav-inner{display:flex;align-items:center;gap:16px;justify-content:space-between;padding:14px 24px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+      background:var(--brand); color:#0b1020; font-weight:800;letter-spacing:.5px;box-shadow:var(--shadow);
+    }
+    .brand h1{font-size:18px;margin:0}
+    .brand small{display:block;color:var(--muted);font-weight:500}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+    nav a{padding:8px 10px;border-radius:10px;color:var(--muted);font-weight:600}
+    nav a.active, nav a:hover{color:var(--text); background:color-mix(in srgb, var(--soft) 60%, transparent)}
+    .actions{display:flex;gap:10px;align-items:center}
+    .btn{
+      padding:10px 14px;border-radius:12px;border:1px solid color-mix(in srgb, var(--muted) 25%, transparent);
+      background:var(--panel); box-shadow:var(--shadow); color:var(--text); font-weight:700;display:inline-flex;gap:8px;align-items:center;cursor:pointer
+    }
+    .btn.primary{background:var(--brand); color:#0b1020; border-color:transparent}
+    .toggle{width:44px;height:28px;border-radius:999px;background:var(--soft);position:relative;border:1px solid color-mix(in srgb, var(--muted) 25%, transparent);cursor:pointer}
+    .toggle::after{content:"";position:absolute;inset:3px;aspect-ratio:1;border-radius:999px;background:var(--panel);box-shadow:var(--shadow);transition:transform .25s}
+    :root[data-theme="light"] .toggle::after{transform:translateX(16px)}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:stretch;margin-block:28px}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+    .card{
+      background:color-mix(in srgb, var(--panel) 85%, transparent);
+      border:1px solid color-mix(in srgb, var(--muted) 22%, transparent);
+      border-radius:var(--radius); box-shadow:var(--shadow)
+    }
+    .hero-left{padding:28px;position:relative;overflow:hidden}
+    .halo{position:absolute;inset:-40%;background:radial-gradient(closest-side, rgba(96,165,250,.10), transparent 65%); filter:blur(20px);pointer-events:none}
+    .title{font-size:44px;line-height:1.05;margin:6px 0 8px}
+    .subtitle{color:var(--muted);font-weight:600;margin:0 0 16px}
+    .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 18px}
+    .pill{padding:8px 12px;border-radius:999px;background:color-mix(in srgb, var(--soft) 70%, transparent);color:var(--text);border:1px solid color-mix(in srgb, var(--muted) 22%, transparent);font-weight:600}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .meta{display:grid;grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px;margin-top:16px}
+    .meta .kpi{padding:12px;border-radius:12px;background:color-mix(in srgb, var(--soft) 65%, transparent);display:flex;gap:10px;align-items:center}
+    .meta .kpi small{color:var(--muted);font-weight:700}
+    .hero-right{padding:0;position:relative;overflow:hidden}
+    .profile{
+      height:100%;display:grid;grid-template-rows:auto 1fr auto;gap:0
+    }
+    .profile-top{padding:22px 22px 10px;border-bottom:1px dashed color-mix(in srgb, var(--muted) 22%, transparent)}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:var(--brand);color:#0b1020;font-weight:800}
+    .bio{padding:18px 22px;font-size:16px}
+    .bio p{margin:0 0 12px}
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width:900px){.grid.cols-3{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
+    .panel{padding:18px;border-radius:14px;background:color-mix(in srgb, var(--soft) 65%, transparent);border:1px solid color-mix(in srgb, var(--muted) 22%, transparent)}
+    .panel h3{margin:0 0 10px;font-size:16px}
+    .dl{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;font-size:14px}
+    .dl .k{color:var(--muted);font-weight:700}
+    section{margin:40px 0}
+    section h2{margin:0 0 14px;font-size:24px}
+    .section-intro{color:var(--muted);margin:0 0 18px}
+    /* Cards & lists */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.cards{grid-template-columns:1fr}}
+    .card-pad{padding:18px}
+    .tag{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:color-mix(in srgb, var(--soft) 70%, transparent);border:1px solid color-mix(in srgb, var(--muted) 22%, transparent);font-weight:700;color:var(--muted)}
+    .tag strong{color:var(--text)}
+    .list{display:flex;flex-direction:column;gap:12px}
+    .list li{list-style:none;padding:12px;border-radius:12px;border:1px solid color-mix(in srgb, var(--muted) 20%, transparent);background:color-mix(in srgb, var(--panel) 85%, transparent)}
+    .list h4{margin:0 0 4px}
+    .small{font-size:13px;color:var(--muted);font-weight:600}
+    .progress{height:10px;border-radius:999px;background:color-mix(in srgb, var(--soft) 65%, transparent);overflow:hidden;border:1px solid color-mix(in srgb, var(--muted) 22%, transparent)}
+    .bar{height:100%;background:var(--brand)}
+    /* Timeline */
+    .timeline{position:relative;padding-left:22px}
+    .timeline::before{content:"";position:absolute;left:8px;top:2px;bottom:2px;width:2px;background:color-mix(in srgb, var(--muted) 30%, transparent)}
+    .t-item{position:relative;margin:0 0 16px}
+    .t-item::before{content:"";position:absolute;left:-14px;top:4px;width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent)}
+    /* Footer & utilities */
+    .footer{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:18px;border-top:1px solid color-mix(in srgb, var(--muted) 25%, transparent)}
+    .muted{color:var(--muted);font-weight:600}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .reveal{opacity:0;transform:translateY(10px);transition:all .5s ease}
+    .reveal.show{opacity:1;transform:none}
+    /* Scroll progress */
+    .progress-top{position:fixed;top:0;left:0;height:3px;background:var(--brand);width:0;z-index:60}
+    /* Print */
+    @media print{
+      header.nav,.hero-actions,.footer,.progress-top{display:none !important}
+      body{background:#fff;color:#111}
+      .card,.panel{box-shadow:none;border:1px solid #ddd}
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-top" id="scrollProgress"></div>
+
+  <header class="nav">
+    <div class="nav-inner container">
+      <div class="brand">
+        <div class="logo">IF</div>
+        <div>
+          <h1>Iwin Francis <small>Portfolio</small></h1>
+        </div>
+      </div>
+      <nav aria-label="Primary">
+        <ul id="navLinks">
+          <li><a href="#about" class="active">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#frameworks">Signature tools</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#mentoring">Mentoring</a></li>
+          <li><a href="#speaking">Speaking</a></li>
+          <li><a href="#library">Library</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <button id="themeToggle" class="toggle" aria-label="Toggle theme"></button>
+        <button class="btn" onclick="window.print()" title="Print or save as PDF">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 9V4h12v5h2a2 2 0 0 1 2 2v6h-4v3H8v-3H4v-6a2 2 0 0 1 2-2h0zm2-3v3h8V6H8zm0 12v1h8v-1H8zm12-2v-4a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v4h16z"/></svg>
+          Save PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="hero-left card reveal">
+        <div class="halo"></div>
+        <span class="badge" aria-label="Identity badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#0b1020" aria-hidden="true"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.33 0-8 2.17-8 5v1h16v-1c0-2.83-3.67-5-8-5z"/></svg>
+          Visionary technocrat & mentor
+        </span>
+        <h2 class="title">I craft AI-powered experiences that feel inevitable.</h2>
+        <p class="subtitle">Blending analytical rigor with poetic creativity to elevate brands, learners, and ideas.</p>
+
+        <div class="pillrow">
+          <span class="pill">AI workflows</span>
+          <span class="pill">Public speaking</span>
+          <span class="pill">Brand stylization</span>
+          <span class="pill">Mentoring</span>
+          <span class="pill">Curation</span>
+          <span class="pill">Framework design</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#contact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0b1020" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg>
+            Collaborate
+          </a>
+          <button class="btn" id="copyBio">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy short bio
+          </button>
+        </div>
+
+        <div class="meta">
+          <div class="kpi">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 7V3l7 7-7 7v-4H5V7z"/></svg>
+            <div><strong>Based in:</strong><br><small>Kochi, Kerala, India</small></div>
+          </div>
+          <div class="kpi">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 8a4 4 0 1 1-4 4 4 4 0 0 1 4-4zm8 4a8 8 0 1 1-8-8 8 8 0 0 1 8 8z"/></svg>
+            <div><strong>Local time:</strong><br><small id="localTime">—</small></div>
+          </div>
+          <div class="kpi">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5h18v2H3zm0 6h12v2H3zm0 6h18v2H3z"/></svg>
+            <div><strong>Focus:</strong><br><small>Technical public speaking</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right card reveal">
+        <div class="profile">
+          <div class="profile-top">
+            <div class="grid cols-2">
+              <div class="panel">
+                <h3>Biodata</h3>
+                <div class="dl">
+                  <div class="k">Name</div><div>Iwin Francis</div>
+                  <div class="k">Role</div><div>AI workflow architect & mentor</div>
+                  <div class="k">Location</div><div>Kochi, Kerala (IST)</div>
+                  <div class="k">Identity</div><div>Visionary technocrat, reflective builder</div>
+                  <div class="k">Availability</div><div>Selective collaborations, mentoring</div>
+                </div>
+              </div>
+              <div class="panel">
+                <h3>Interesting fields</h3>
+                <ul class="list" role="list">
+                  <li><h4>Personal branding</h4><div class="small">Thought leadership, symbolic language, unforgettable delivery</div></li>
+                  <li><h4>AI-powered experiences</h4><div class="small">Workflows, stylization systems, creative augmentation</div></li>
+                  <li><h4>Education & mentoring</h4><div class="small">Mathematics, structured guidance, growth systems</div></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bio">
+            <p>I turn complex ideas into experiences people feel. My work lives where precision meets mood—where a system can be rigorous and still sing.</p>
+            <p>I’m energized, ambitious, and proud of the documents and frameworks I build—always reaching for the next frontier of mastery.</p>
+          </div>
+
+          <div class="card-pad">
+            <div class="grid cols-3">
+              <div class="panel">
+                <h3>Goals</h3>
+                <ul class="list" role="list">
+                  <li><strong>Stage craft:</strong> Master rhetorical devices for technical public speaking</li>
+                  <li><strong>Idea engine:</strong> Generate stunning report topics for growth</li>
+                </ul>
+              </div>
+              <div class="panel">
+                <h3>Values</h3>
+                <ul class="list" role="list">
+                  <li><strong>Clarity:</strong> Make complexity legible, memorable, and useful</li>
+                  <li><strong>Authenticity:</strong> Mood-driven stylization that amplifies truth</li>
+                </ul>
+              </div>
+              <div class="panel">
+                <h3>Identity markers</h3>
+                <div class="pillrow">
+                  <span class="pill">Curator</span>
+                  <span class="pill">Architect</span>
+                  <span class="pill">Mentor</span>
+                  <span class="pill">Performer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="reveal">
+      <h2>Skills</h2>
+      <p class="section-intro">A synthesis-first toolkit—equal parts architecture, stylization, and empathy.</p>
+
+      <div class="cards">
+        <article class="card card-pad">
+          <header class="pillrow">
+            <span class="tag"><strong>AI</strong> Workflows</span>
+            <span class="tag">Automation</span>
+          </header>
+          <h3>AI-powered workflow architecture</h3>
+          <p class="small">Designing advanced flows that blend troubleshooting, creative stylization, and symbolic communication.</p>
+          <div class="list">
+            <div>
+              <div class="small">Systems thinking</div>
+              <div class="progress"><div class="bar" style="width:92%"></div></div>
+            </div>
+            <div>
+              <div class="small">Prompt & pattern design</div>
+              <div class="progress"><div class="bar" style="width:90%"></div></div>
+            </div>
+            <div>
+              <div class="small">Evaluation & iteration</div>
+              <div class="progress"><div class="bar" style="width:88%"></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card card-pad">
+          <header class="pillrow">
+            <span class="tag"><strong>Brand</strong> Stylization</span>
+            <span class="tag">Symbolic language</span>
+          </header>
+          <h3>Signature stylization & branding</h3>
+          <p class="small">Mood-driven communication that makes technical content unforgettable on stage and online.</p>
+          <div class="list">
+            <div>
+              <div class="small">Narrative voice</div>
+              <div class="progress"><div class="bar" style="width:91%"></div></div>
+            </div>
+            <div>
+              <div class="small">Visual grammar</div>
+              <div class="progress"><div class="bar" style="width:84%"></div></div>
+            </div>
+            <div>
+              <div class="small">Symbolic systems</div>
+              <div class="progress"><div class="bar" style="width:89%"></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card card-pad">
+          <header class="pillrow">
+            <span class="tag"><strong>Mentor</strong> Ship</span>
+            <span class="tag">Mathematics</span>
+          </header>
+          <h3>Structured, empathetic mentoring</h3>
+          <p class="small">Guiding learners with clarity, scaffolding, and practical problem-solving.</p>
+          <div class="list">
+            <div>
+              <div class="small">Mathematical explanation</div>
+              <div class="progress"><div class="bar" style="width:93%"></div></div>
+            </div>
+            <div>
+              <div class="small">Learning design</div>
+              <div class="progress"><div class="bar" style="width:87%"></div></div>
+            </div>
+            <div>
+              <div class="small">Growth coaching</div>
+              <div class="progress"><div class="bar" style="width:86%"></div></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SIGNATURE TOOLS -->
+    <section id="frameworks" class="reveal">
+      <h2>Signature tools</h2>
+      <p class="section-intro">Frameworks that turn intent into repeatable, compelling outcomes.</p>
+
+      <div class="cards">
+        <article class="card card-pad">
+          <header class="pillrow">
+            <span class="tag"><strong>Spade</strong>Crafter</span>
+            <span class="tag">Brand systems</span>
+          </header>
+          <h3>SpadeCrafter</h3>
+          <p class="small">A stylization engine that encodes brand voice, mood palettes, and symbolic motifs into reusable patterns for content and talks.</p>
+          <ul class="list" role="list">
+            <li><strong>Voice blocks:</strong> Modular tone + tempo + texture presets</li>
+            <li><strong>Symbol packs:</strong> Consistent metaphors, icons, and transitions</li>
+            <li><strong>Style loops:</strong> Iterative A/B stylization with guardrails</li>
+          </ul>
+        </article>
+
+        <article class="card card-pad">
+          <header class="pillrow">
+            <span class="tag"><strong>Topic</strong>Crafter</span>
+            <span class="tag">Curation</span>
+          </header>
+          <h3>TopicCrafter</h3>
+          <p class="small">A topic-generation and refinement pipeline that balances novelty with audience fit and personal edge.</p>
+          <ul class="list" role="list">
+            <li><strong>Angles matrix:</strong> Technical, strategic, narrative, ethical</li>
+            <li><strong>Proof map:</strong> Demos, data, story, counterpoint</li>
+            <li><strong>Runway:</strong> Sequenced topics for momentum over months</li>
+          </ul>
+        </article>
+
+        <article class="card card-pad">
+          <header class="pillrow">
+            <span class="tag"><strong>Stage</strong>Lab</span>
+            <span class="tag">Speaking</span>
+          </header>
+          <h3>Stagecraft Lab</h3>
+          <p class="small">A rehearsal kit for technical public speaking—beats, hooks, and refrains designed to land.</p>
+          <ul class="list" role="list">
+            <li><strong>Hook bank:</strong> 12 opening patterns for different audiences</li>
+            <li><strong>Beat sheet:</strong> Minute-by-minute attention choreography</li>
+            <li><strong>Refrain set:</strong> Memorable lines and callback anchors</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="reveal">
+      <h2>Work</h2>
+      <p class="section-intro">Recent focus areas and outcomes. Depth, polish, and repeatability are non-negotiable.</p>
+
+      <div class="cards">
+        <article class="card card-pad">
+          <h3>LinkedIn supremacy strategy</h3>
+          <p class="small">AI-powered post stylization with symbolic enhancement to grow reach and recognition.</p>
+          <ul class="list" role="list">
+            <li><strong>Outcome:</strong> Sharper voice, higher saves, consistent brand motifs</li>
+            <li><strong>System:</strong> SpadeCrafter + cadence planner + hook bank</li>
+            <li><strong>Artifacts:</strong> Post templates, motif glossary, analytics sheet</li>
+          </ul>
+        </article>
+
+        <article class="card card-pad">
+          <h3>High-impact reports & guides</h3>
+          <p class="small">Technical, academic, and creative documents produced with AI-in-the-loop rigor.</p>
+          <ul class="list" role="list">
+            <li><strong>Outcome:</strong> Compelling structure, proof density, visual rhythm</li>
+            <li><strong>System:</strong> TopicCrafter + outline engine + style loops</li>
+            <li><strong>Artifacts:</strong> PDF kits, slide decks, reference maps</li>
+          </ul>
+        </article>
+
+        <article class="card card-pad">
+          <h3>Curated research library</h3>
+          <p class="small">A living index of topics and references for ongoing mastery.</p>
+          <ul class="list" role="list">
+            <li><strong>Outcome:</strong> Faster recall, better synthesis, teaching-ready notes</li>
+            <li><strong>System:</strong> 3-tier tagging + source reliability scoring</li>
+            <li><strong>Artifacts:</strong> Briefs, one-pagers, canonical summaries</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- MENTORING -->
+    <section id="mentoring" class="reveal">
+      <h2>Mentoring</h2>
+      <p class="section-intro">Structured, empathetic guidance—especially in mathematics and personal growth.</p>
+
+      <div class="grid cols-3">
+        <div class="panel">
+          <h3>Math mentoring</h3>
+          <ul class="list" role="list">
+            <li><strong>Clarity-first:</strong> Stepwise explanations, intuition, and checks</li>
+            <li><strong>Scaffolding:</strong> From pattern-finding to formalism</li>
+            <li><strong>Confidence:</strong> Wins that compound into mastery</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Career growth</h3>
+          <ul class="list" role="list">
+            <li><strong>Signals:</strong> Portfolios, narratives, and proof-of-work</li>
+            <li><strong>Operating system:</strong> Weekly sprints and feedback loops</li>
+            <li><strong>Presence:</strong> Writing, speaking, and public artifacts</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Teaching kit</h3>
+          <ul class="list" role="list">
+            <li><strong>Templates:</strong> Lesson maps, worked examples, drills</li>
+            <li><strong>Routines:</strong> Retrieval, spacing, interleaving</li>
+            <li><strong>Instruments:</strong> Rubrics, reflection prompts, dashboards</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPEAKING -->
+    <section id="speaking" class="reveal">
+      <h2>Speaking</h2>
+      <p class="section-intro">Technical talks with poetic edges—memorable lines, live demos, and crisp mental models.</p>
+
+      <div class="grid cols-2">
+        <div class="panel">
+          <h3>Formats</h3>
+          <ul class="list" role="list">
+            <li><strong>Keynotes:</strong> Narrative arcs with demo punctuations</li>
+            <li><strong>Workshops:</strong> Hands-on frameworks with take-home kits</li>
+            <li><strong>Lightning:</strong> One big idea, one clean proof, one refrain</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Rhetorical devices</h3>
+          <ul class="list" role="list">
+            <li><strong>Triads:</strong> Frame, proof, refrain</li>
+            <li><strong>Contrast:</strong> Old way vs inevitable way</li>
+            <li><strong>Callbacks:</strong> Motifs that return with meaning</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:18px">
+        <h3>Sample talk seeds</h3>
+        <ul class="list" role="list">
+          <li><strong>The Stylization Stack:</strong> How symbolic language makes technical content unforgettable</li>
+          <li><strong>Designing with Proof:</strong> Building AI workflows that justify themselves</li>
+          <li><strong>Teaching for Transfer:</strong> From solved problems to portable skills</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- LIBRARY -->
+    <section id="library" class="reveal">
+      <h2>Library</h2>
+      <p class="section-intro">A rotating shelf of topics I’m exploring, teaching, or turning into artifacts.</p>
+
+      <div class="cards">
+        <article class="card card-pad">
+          <h3>AI workflow patterns</h3>
+          <ul class="list" role="list">
+            <li><strong>Chain-of-judgment:</strong> Style eval loops with rubrics</li>
+            <li><strong>Guardrails:</strong> Constraint prompts and checklists</li>
+            <li><strong>Traceability:</strong> Decision logs and deltas</li>
+          </ul>
+        </article>
+        <article class="card card-pad">
+          <h3>Public speaking craft</h3>
+          <ul class="list" role="list">
+            <li><strong>Hooks:</strong> Questions, contrasts, vows, reveals</li>
+            <li><strong>Beats:</strong> 3-5 minute attention cycles</li>
+            <li><strong>Refrains:</strong> Sticky lines that pay off</li>
+          </ul>
+        </article>
+        <article class="card card-pad">
+          <h3>Teaching systems</h3>
+          <ul class="list" role="list">
+            <li><strong>Concept maps:</strong> From models to exercises</li>
+            <li><strong>Assessment:</strong> Minimum viable mastery checks</li>
+            <li><strong>Feedback:</strong> Fast, specific, kind</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal">
+      <h2>Contact</h2>
+      <p class="section-intro">For collaborations, speaking, or mentoring—say hello and share your intent.</p>
+
+      <div class="grid cols-2">
+        <div class="panel">
+          <h3>Reach out</h3>
+          <ul class="list" role="list">
+            <li><strong>Email:</strong> <a href="mailto:iwin@example.com" id="emailLink">iwin@example.com</a></li>
+            <li><strong>LinkedIn:</strong> <a href="#" rel="noopener">linkedin.com/in/iwinfrancis</a></li>
+            <li><strong>Location:</strong> Kochi, Kerala (IST)</li>
+          </ul>
+          <div class="pillrow" style="margin-top:6px">
+            <button class="btn" id="copyEmail">Copy email</button>
+            <a class="btn primary" href="mailto:iwin@example.com?subject=Collaboration%20with%20Iwin&body=Hi%20Iwin%2C%0A%0AContext%3A%20%0AGoal%3A%20%0ATimeline%3A%20%0A%0A-%20Your%20Name" aria-label="Start email">Start an email</a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Collaboration cues</h3>
+          <ul class="list" role="list">
+            <li><strong>Fit:</strong> Mission-led, high craft, clear outcomes</li>
+            <li><strong>Mode:</strong> Design sprints, co-writing, rehearsal</li>
+            <li><strong>Artifacts:</strong> Playbooks, decks, demos, docs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <div class="muted">© <span id="year"></span> Iwin Francis — Built with care.</div>
+    <div class="muted">Made in Kochi • Theme-aware • Print-ready</div>
+  </footer>
+
+  <script>
+    // Theme toggle with persistence
+    (function themeInit(){
+      const root = document.documentElement;
+      const saved = localStorage.getItem('theme');
+      if(saved){ root.setAttribute('data-theme', saved); }
+      document.getElementById('themeToggle').addEventListener('click', ()=>{
+        const current = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', current);
+        localStorage.setItem('theme', current);
+      });
+      // default: dark
+      if(!saved) root.setAttribute('data-theme','dark');
+    })();
+
+    // Local time (IST)
+    (function localTime(){
+      const el = document.getElementById('localTime');
+      function tick(){
+        const now = new Date();
+        const fmt = new Intl.DateTimeFormat('en-IN', {
+          timeZone: 'Asia/Kolkata',
+          hour: '2-digit', minute: '2-digit', second: '2-digit',
+          hour12: true
+        });
+        el.textContent = fmt.format(now) + ' IST';
+      }
+      tick(); setInterval(tick, 1000);
+    })();
+
+    // Copy short bio
+    (function copyBio(){
+      const btn = document.getElementById('copyBio');
+      if(!btn) return;
+      const bio = "I craft AI-powered experiences that feel inevitable—where precision meets mood. Architect, mentor, and performer from Kochi.";
+      btn.addEventListener('click', async ()=>{
+        try{
+          await navigator.clipboard.writeText(bio);
+          const prev = btn.textContent.trim();
+          btn.textContent = 'Copied!';
+          setTimeout(()=> btn.textContent = prev, 1500);
+        }catch(e){
+          alert('Copy failed. Try selecting the text manually.');
+        }
+      });
+    })();
+
+    // Copy email
+    (function copyEmail(){
+      const btn = document.getElementById('copyEmail');
+      const link = document.getElementById('emailLink');
+      if(!btn || !link) return;
+      btn.addEventListener('click', async ()=>{
+        try{
+          await navigator.clipboard.writeText(link.textContent.trim());
+          const prev = btn.textContent;
+          btn.textContent = 'Email copied';
+          setTimeout(()=> btn.textContent = prev, 1500);
+        }catch(e){ alert('Copy failed.'); }
+      });
+    })();
+
+    // Scroll reveal
+    (function revealOnScroll(){
+      const obs = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){ e.target.classList.add('reveal','show'); }
+        });
+      }, {threshold: .12});
+      document.querySelectorAll('.reveal').forEach(el=> obs.observe(el));
+    })();
+
+    // Scroll progress
+    (function scrollProgress(){
+      const bar = document.getElementById('scrollProgress');
+      const update = ()=>{
+        const doc = document.documentElement;
+        const scrolled = doc.scrollTop;
+        const height = doc.scrollHeight - doc.clientHeight;
+        const pct = height ? (scrolled / height) * 100 : 0;
+        bar.style.width = pct + '%';
+      };
+      update(); window.addEventListener('scroll', update, {passive:true});
+      window.addEventListener('resize', update);
+    })();
+
+    // Active nav link
+    (function navActive(){
+      const links = Array.from(document.querySelectorAll('#navLinks a'));
+      const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+      const onScroll = ()=>{
+        let idx = 0;
+        for(let i=0;i<sections.length;i++){
+          const rect = sections[i].getBoundingClientRect();
+          if(rect.top <= 120) idx = i;
+        }
+        links.forEach((a,i)=> a.classList.toggle('active', i===idx));
+      };
+      onScroll();
+      document.addEventListener('scroll', onScroll, {passive:true});
+    })();
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+```
